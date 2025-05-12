@@ -1,63 +1,149 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio</title>
-    <link href="css/estilos.css" rel="stylesheet">
-</head>
-
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+    <link href="estilos.css" rel="stylesheet" />
+  </head>
 <body>
+<!-- barra de navegación-->
     <header>
-        <h1> Eventos IDW</h1>
-        <nav>
-        <ul>
-            <li>
-                <a href="index.html">Inicio</a>
-            </li>
-            <li>
-                <a href="contacto.html">contacto</a>
-            </li>
-            <li>
-                <a href="institucional.html">Institucional</a>
-            </li>
-            <li>
-                <a href="eventos.html">Eventos</a>
-            </li>
-            <li>
-                <a href="presupuestos.html">Presupuestos</a>
-            </li>
-        </ul>
-
-    </nav>
-</header>
-    <main>
-        <h2>Bienvenidos a IDW Kids Events</h2>
-        <h4>Hacemos realidad el cumpleaños soñado de los más pequeños</h4>
-        <p>En IDW Kids Events nos dedicamos a ofrecer una experiencia única en organización de cumpleaños infantiles. Contamos con una amplia variedad de salones temáticos, servicios personalizados y todo lo necesario para que tu evento sea inolvidable.</p>
-        <img src="imagenes/fiestainfantil.jpg" alt="Fiesta infantil"/>
-        <h3>¡Tu evento empieza acá!</h3>
-        <p>Explorá, elegí y reservá el mejor salón para ese día tan especial</p>
-        <p>IDW Kids Events. Más que fiestas. Momentos mágicos</p>
-        <section>
-            <ul>
-                <li>Tematicas</li>
-                <li>Salones</li>
-                <li>Presupuesto</li>
-            </ul>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary bg-degradado fixed-top ">
+  <div class="container-fluid navegador px-5">
+    <a class="navbar-brand" href="#">
+      <img src="/imagenes/Logo Colorido de IDW Eventos.png" alt="Bootstrap" width="70" height="auto">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end " id="navbarNavAltMarkup">
+      <div class="navbar-nav d-flex gap-4">
+        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+        <a class="nav-link" href="institucional.html">Institucional</a>
+        <a class="nav-link" href="eventos.html">Catálogo</a>
+        <a class="nav-link" href="contacto.html">Contacto</a>
+      </div>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="container">
+<!-- presentacion inicial-->
+        <section class="bg-image col-12 d-flex justify-content-center align-items-center text-center" style="height:400px;">
+            <div class="row align-items-center">
+                <div class=" margen-personalizado texto-presentacion">
+                    <h2>Bienvenidos a IDW Kids Events</h2>
+                    <h4>Hacemos realidad el cumpleaños soñado de los mas pequeños</h4>
+                </div>
+            </div>
         </section>
+<!-- imagen y texto-->
+        <div class="row my-5 d-flex align-items-center justify-content-center flex-column flex-lg-row text-center text-lg-start">
+            <div class="col-sm-12 col-lg-3">
+                <img src="imagenes/fiestainfantil1.jpg" class="img-fluid rounded-circle" alt="Fiesta infantil">
+            </div>
+            <div class="col-lg-6">
+                <p>En IDW Kids Events nos dedicamos a ofrecer una experiencia única en organización de cumpleaños infantiles. Contamos con una amplia variedad de salones temáticos, servicios personalizados y todo lo necesario para que tu evento sea inolvidable.</p>
+            </div>
+        </div>
+<!-- Seccion 1: Tu evento empieza acá-->
+        <div class="row row-cols-12">
+            <div class="col d-flex flex-column flex-wrap gap-2 mb">
+                <h3>¡Tu evento empieza acá!</h3>
+                <p>Explorá, elegí y reservá el mejor salón para ese día tan especial</p>
+            </div>
+    <!-- Cards-->
         
-        <h3>¿Por qué elegirnos?</h3>
-        <ul>
-            <li>Más de 10 años de experiencia en eventos infantiles</li>
-            <li>Espacios seguros, accesibles y con distintas temáticas</li>
-            <li>Atención personalizada y asesoramiento gratuito</li>
-            <li>Sistema online para consultar disponibilidad y armar presupuestos</li>
-        </ul>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Temáticas</h5>
+                                <p class="card-text">Elegí entre una amplia variedad de temáticas: unicornios, superhéroes, princesas y muchas más para que tu evento sea único.</p>
+                                <button type="button" class="btn btn-outline-secondary ">Ver Más</button>
+                            </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Salones</h5>
+                                <p class="card-text">Contamos con salones cómodos, seguros y totalmente equipados para adaptarse a tu estilo y cantidad de invitados.</p>
+                                <button type="button" class="btn btn-outline-secondary ">Ver Más</button>
+                            </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Presupuesto</h5>
+                                <p class="card-text">Armá tu presupuesto personalizado en pocos pasos, según tus preferencias, cantidad de invitados y servicios extra.</p>
+                                <button type="button" class="btn btn-outline-secondary ">Ver Más</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Seccion 2: porque elegirnos?-->
+        <div class="row my-5 d-flex align-items-center justify-content-center">
+                <h3>¿Porqué elegirnos?</h3>
+            <div class="col-sm-2 d-none d-sm-block lista-numero text-end">
+                <p>1</p>
+                <p>2</p>
+                <p>3</p>
+                <p>4</p>
+            </div>
+            <div class="col-sm-8">
+                <h6>Más de 10 años de experiencia</h6>
+                <hr>
+                <p>Sabemos cómo crear celebraciones inolvidables, porque llevamos una década dedicada a la diversión infantil.</p>
+                <h6>Espacios seguros y temáticos</h6>
+                <hr>
+                <p>Salones preparados con distintas ambientaciones y medidas de seguridad para tranquilidad de toda la familia.</p>
+                <h6>Atención personalizada</h6>
+                <hr>
+                <p>Te acompañamos en cada paso con asesoramiento gratuito y propuestas a tu medida.</p>
+                <h6>Presupuesto online al instante</h6>
+                <hr>
+                <p>Elegí los servicios que querés, consultá disponibilidad y recibí tu presupuesto sin moverte de casa.</p>
+            </div>
+        </div>
 
     </main>
-    <footer>
+    <!-- Footer-->
+        <footer class="container">
         <h3>Contacto</h3>
+        <div class="row">
+            <div class="col">
+                <ul>
+                    <li>Paraná, Entre Ríos, Argentina.</li>
+                    <li>Teléfono: +54 343 555-1234</li>
+                    <li>Correo: contacto@idwkidsevents.com.ar</li>
+                </ul>
+            </div>
+            <div class="col">
+                <p>Seguinos en nuestras redes sociales para no perderte ninguna novedad</p>
+                <i class="bi bi-facebook"> Facebook</i>
+                <i class="bi bi-instagram"> Instagram</i>
+                <i class="bi bi-tiktok"> TikTok</i>
+            </div>
+            <p>&copy;2025 IDW Kids Events. Todos los derechos reservados.</p>
+            
+        </div>
+    </footer>
+    
+</body>
+</html>
 
         <ul>
             <li>Paraná, Entre Ríos, Argentina.</li>
