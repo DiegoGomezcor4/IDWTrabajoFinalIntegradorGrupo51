@@ -13,6 +13,7 @@
     <link href="estilos.css" rel="stylesheet" />
 </head>
 <body>
+<!-- barra de navegación-->
         <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary bg-degradado fixed-top ">
           <div class="container-fluid navegador px-5">
@@ -33,15 +34,24 @@
           </div>
         </nav>
     </header>
-    <main>
-        <h1>Contacto</h1>
-        <p>¿Tenés alguna duda? ¿Querés reservar un salón o armar tu presupuesto?
-            <br>
-            ¡Estamos para ayudarte!
-        </p>
-        <p>Completá el formulario de contacto y te responderemos a la brevedad.</p>
+ <!-- Contenido principal -->
+    <main class="container mb-5">
+        <div class="row my-3 d-flex gy-5 text-center">
+            <div class="col texto-presentacion">
+                <h2 class="text-center">Contacto</h2>
+                <p class="text-center">¿Tenés alguna duda? ¿Querés reservar un salón o armar tu presupuesto?
+                <br>
+                ¡Estamos para ayudarte!
+                </p>
+            </div>
+        </div>
+ <!-- formulario de contacto-->
+        <section>
+            <div class="row align-items-center ">
+                <div class="col-sm-12 col-lg-6">
+                    <p>Completá el formulario de contacto y te responderemos a la brevedad.</p>
         <form id="contact">
-            <div class="container col-md-4 py-4" style="background-color: #fbd3bb71">
+            <div class="container py-4" style="background-color: #fbd3bb71">
                 <div class="mb-2">
                     <label for="nom" class="form-label">Nombre</label>
                     <input type="tex" class="form-control" id="nom">
@@ -59,19 +69,24 @@
                 </div>
             </div>
         </form>
-        <h2>Información de contacto</h2>
-        <ul>
-            <li><strong>Email:</strong> <a href="mailto:contacto@idwkidsevents.com">contacto@idwkidsevents.com</a></li>
-            <li><strong>Dirección:</strong> Av. de los Cumpleaños 1234, Paraná, Entre Ríos</li>
-            <li><strong>WhatsApp:</strong> <a href="https://wa.me/5493434567890" target="_blank">+54 9 343 456 7890</a></li>
-            <li><strong>Teléfono:</strong> (0343) 456-7890</li>
-        </ul>
-    
-        <h2>Horacios de atención</h2>
-        <ul>
-            <li>Lunes a Viernes: 9:00 a 18:00 hs</li>
-            <li>Sábados: 9:00 a 13:00 hs</li>
-        </ul>
+                </div>
+                <div class="col-sm-12 col-lg-6 p-4">
+                    <h2>Información de contacto</h2>
+                        <ul class=" list-unstyled">
+                            <li><strong>Email:</strong> <a href="mailto:contacto@idwkidsevents.com">contacto@idwkidsevents.com</a></li>
+                            <li><strong>Dirección:</strong> Av. de los Cumpleaños 1234, Paraná, Entre Ríos</li>
+                            <li><strong>WhatsApp:</strong> <a href="https://wa.me/5493434567890" target="_blank">+54 9 343 456 7890</a></li>
+                            <li><strong>Teléfono:</strong> (0343) 456-7890</li>
+                        </ul>
+                    <h2>Horacios de atención</h2>
+                    <ul class=" list-unstyled">
+                        <li>Lunes a Viernes: 9:00 a 18:00 hs</li>
+                        <li>Sábados: 9:00 a 13:00 hs</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
     </main>
     <footer>
         <div class="container pt-4">
