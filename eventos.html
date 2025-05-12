@@ -3,63 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-    <!-- fuentes de google  -->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Quicksand&display=swap" rel="stylesheet">  -->
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="CCS.css" rel="stylesheet">
+    <title>Eventos</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+      crossorigin="anonymous"
+    />
+    <link href="estilos.css" rel="stylesheet" />
 </head>
 
 <body>
-  <!-- Menu anterior -->
+  <!-- barra de navegación-->
     <header>
-        <h1>Eventos IDW</h1>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="index.html">Inicio</a>
-                    </li>
-                    <li>
-                        <a href="contacto.html">Contacto</a>
-                    </li>
-                    <li>
-                        <a href="institucional.html">Institucional</a>
-                    </li>
-                    <li>
-                        <a href="eventos.html">Catálogo</a>
-                    </li>
-                </ul>
-            </nav>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary bg-degradado fixed-top ">
+          <div class="container-fluid navegador px-5">
+            <a class="navbar-brand" href="#">
+              <img src="/imagenes/Logo Colorido de IDW Eventos.png" alt="Bootstrap" width="70" height="auto">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end " id="navbarNavAltMarkup">
+              <div class="navbar-nav d-flex gap-4">
+                <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                <a class="nav-link" href="institucional.html">Institucional</a>
+                <a class="nav-link" href="eventos.html">Catálogo</a>
+                <a class="nav-link" href="contacto.html">Contacto</a>
+              </div>
+            </div>
+          </div>
+        </nav>
     </header>
-
-  <!-- Menu bootstrap -->
-  <!-- <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-custom w-100">
-      <div class="container">
-        <a class="navbar-brand titulo-navbar" href="index.html">Eventos IDW</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center" id="menuNav">
-          <ul class="navbar-nav gap-5">
-            <li class="nav-item">
-              <a class="nav-link nav-custom" href="index.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-custom" href="contacto.html">Contacto</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-custom" href="institucional.html">Institucional</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-custom active" aria-current="page" href="eventos.html">Catálogo</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header> -->
   
   <!-- Contenido principal -->
   <main class="container my-5">
@@ -140,22 +115,32 @@
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <h3>Contacto</h3>
-    <ul>
-      <li>Paraná, Entre Ríos, Argentina.</li>
-      <li>Teléfono: +54 343 555-1234</li>
-      <li>Correo: contacto@idwkidsevents.com.ar</li>
-    </ul>
-    <p>Seguinos en nuestras redes sociales para no perderte ninguna novedad</p>
-    <ul>
-      <li>Instagram</li>
-      <li>Facebook</li>
-      <li>TikTok</li>
-    </ul>
-    <p>&copy; 2025 IDW Kids Events. Todos los derechos reservados.</p>
-  </footer>
+  <!-- Footer-->
+        <footer>
+        <div class="container pt-4">
+            <div class="row">
+                <div class="col col-sm-12 col-lg-6">
+                    <h5>Contacto</h5>
+                    <ul>
+                        <li>Paraná, Entre Ríos, Argentina.</li>
+                        <li>Teléfono: +54 343 555-1234</li>
+                        <li>Correo: contacto@idwkidsevents.com.ar</li>
+                    </ul>
+                </div>
+                <div class="col col-sm-12 col-lg-6">
+                    <h5>Seguinos en nuestras redes sociales</h5>
+                    <ul>
+                        <li>Instagram</li>
+                        <li>Facebook</li>
+                        <li>TikTok</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="py-2">
+            <center><p>&copy;2025 IDW Kids Events. Todos los derechos reservados.</p></center>
+            </div>
+        </div>
+    </footer>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
