@@ -33,11 +33,18 @@ body {
     z-index: 2;
 }
 /* Presentación*/
+
+.texto-presentacion {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 .texto-presentacion h2{
     font-weight: bolder;
     font-size: 3.5rem;
     color:#e4543f;
 }
+
 .texto-presentacion h4{
     font-size: 1.3rem;
     font-weight:normal;
@@ -65,7 +72,13 @@ h3{
 }
 p{
     font-size: 1.3rem;
+    text-align: left;
 }
+ul li {
+    font-size: 1.3rem;
+}
+
+
 .div h2{
     font-weight: bold;
 }
