@@ -8,67 +8,45 @@
     <!-- <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Quicksand&display=swap" rel="stylesheet">  -->
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="CCS.css" rel="stylesheet">
+    <link href="estilos.css" rel="stylesheet">
 </head>
 
 <body>
-  <!-- Menu anterior -->
-    <header>
-        <h1>Eventos IDW</h1>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="index.html">Inicio</a>
-                    </li>
-                    <li>
-                        <a href="contacto.html">Contacto</a>
-                    </li>
-                    <li>
-                        <a href="institucional.html">Institucional</a>
-                    </li>
-                    <li>
-                        <a href="eventos.html">Catálogo</a>
-                    </li>
-                </ul>
-            </nav>
+  <!-- Menu bootstrap -->
+<header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary bg-degradado fixed-top ">
+  <div class="container-fluid navegador px-5">
+    <a class="navbar-brand" href="index.html">
+      <img src="/imagenes/Logo Colorido de IDW Eventos.png" alt="Bootstrap" width="70" height="auto">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end " id="navbarNavAltMarkup">
+      <div class="navbar-nav d-flex gap-4">
+        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+        <a class="nav-link" href="institucional.html">Institucional</a>
+        <a class="nav-link" href="eventos.html">Catálogo</a>
+        <a class="nav-link" href="contacto.html">Contacto</a>
+      </div>
+    </div>
+  </div>
+</nav>
     </header>
 
-  <!-- Menu bootstrap -->
-  <!-- <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-custom w-100">
-      <div class="container">
-        <a class="navbar-brand titulo-navbar" href="index.html">Eventos IDW</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center" id="menuNav">
-          <ul class="navbar-nav gap-5">
-            <li class="nav-item">
-              <a class="nav-link nav-custom" href="index.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-custom" href="contacto.html">Contacto</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-custom" href="institucional.html">Institucional</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-custom active" aria-current="page" href="eventos.html">Catálogo</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header> -->
   
   <!-- Contenido principal -->
-  <main class="container my-5">
-    <h2 class="text-center mb-4">Nuestros eventos</h2>
-    <p class="text-center">En IDW Kids Events nos especializamos en crear momentos inolvidables. 
-      Ofrecemos una amplia variedad de eventos temáticos para todas las edades, gustos y presupuestos.</p>
-
+  <main class="container">
+    <div class="row my-3 d-flex gy-5 text-center">
+      <div class="col texto-presentacion">
+        <h2 class="text-center mb-4">Nuestros eventos</h2>
+        <p class="text-center">En IDW Kids Events nos especializamos en crear momentos inolvidables. 
+        Ofrecemos una amplia variedad de eventos temáticos para todas las edades, gustos y presupuestos.</p>
+      </div>
+    </div>
+    
     <!-- Catálogo con Bootstrap -->
-    <section class="seccion-eventos">
+    <section class="seccion-eventos d-flex flex-wrap gap-2">
       <h3 class="mb-4">Tipos de eventos</h3>
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         <div class="col">
@@ -134,28 +112,39 @@
       </div>
     </section>
 
-    <div class="text-center mt-4">
+    <div class="text-center my-5">
       <p>Cada evento se adapta a las necesidades de tu familia y está pensado para que los chicos se diviertan al máximo, con seguridad, creatividad y mucho amor.</p>
       <h4>¡Elegí el tipo de evento que soñás y empezá a planearlo hoy mismo!</h4>
     </div>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer-->
   <footer>
-    <h3>Contacto</h3>
-    <ul>
-      <li>Paraná, Entre Ríos, Argentina.</li>
-      <li>Teléfono: +54 343 555-1234</li>
-      <li>Correo: contacto@idwkidsevents.com.ar</li>
-    </ul>
-    <p>Seguinos en nuestras redes sociales para no perderte ninguna novedad</p>
-    <ul>
-      <li>Instagram</li>
-      <li>Facebook</li>
-      <li>TikTok</li>
-    </ul>
-    <p>&copy; 2025 IDW Kids Events. Todos los derechos reservados.</p>
-  </footer>
+        <div class="container pt-4">
+            <div class="row">
+                <div class="col col-sm-12 col-lg-6">
+                    <h5>Contacto</h5>
+                    <ul>
+                        <li>Paraná, Entre Ríos, Argentina.</li>
+                        <li>Teléfono: +54 343 555-1234</li>
+                        <li>Correo: contacto@idwkidsevents.com.ar</li>
+                    </ul>
+                </div>
+                <div class="col col-sm-12 col-lg-6">
+                    <h5>Seguinos en nuestras redes sociales</h5>
+                    <ul>
+                        <li>Instagram</li>
+                        <li>Facebook</li>
+                        <li>TikTok</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="py-2">
+            <center><p>&copy;2025 IDW Kids Events. Todos los derechos reservados.</p></center>
+            </div>
+        </div>
+    </footer>  
+    
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
