@@ -76,3 +76,22 @@ p{
     margin-bottom: 200px;
     z-index: 3;
 }
+
+ /* Footer*/
+
+ .centrado{
+    text-align: center;
+}
+footer{
+    background-color: #875387;
+    color: rgb(209, 209, 209);
+}
+footer h5{
+    font-weight: 600;
+}
+footer p{
+    font-size: 0.7rem
+}
+footer ul{
+    list-style-type: none;
+}
