@@ -43,6 +43,7 @@ function verSalones() {
         <td>${salon.nombre}</td>
         <td>${salon.direccion}</td>
         <td>${salon.descripcion}</td>
+        <td><button class="btn btn-primary btn-sm mx-1 my-1" onclick="editSalon">Editar</button> <button class="btn btn-danger btn-sm mx-1 my-1" onclick="deleteSalon">Eliminar</button></td>
         `;
         table.appendChild(fila)
     })
