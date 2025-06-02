@@ -16,7 +16,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         }
         // guarda la info de inicio de sesion
         localStorage.setItem("usuarioLogueado", JSON.stringify(usuarioLogueado));
-        window.location.href = "admin-salones.html"; // redirige al panel de administrador
+        window.location.href = "altaSalones.html"; // redirige al panel de administrador
     } else {
         document.getElementById("error").style.display = "block";
         
