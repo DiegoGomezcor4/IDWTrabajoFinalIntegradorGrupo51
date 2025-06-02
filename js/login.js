@@ -14,9 +14,9 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
             username: storedUser.username,
             rol: "administrador"
         }
-
-        localStorage.setItem("usuarioLogueado", JSON.stringify({ username}));
-        window.location.href = "admin-salones.html"; // redirige al panel
+        // guarda la info de inicio de sesion
+        localStorage.setItem("usuarioLogueado", JSON.stringify(usuarioLogueado));
+        window.location.href = "admin-salones.html"; // redirige al panel de administrador
     } else {
         document.getElementById("error").style.display = "block";
         
