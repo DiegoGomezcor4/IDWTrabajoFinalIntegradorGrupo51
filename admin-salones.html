@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Salones</title>
+</head>
+<body>
+  <button id="logoutBtn" class="btn btn-danger">Cerrar sesión</button>
+  <h1>Página temporal de administración</h1>
+  <div id="mensaje"></div>
+
+  <script>
+    const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
+
+    if (!usuario) {
+      // No hay usuario logueado, redirige al login
+      window.location.href = "login.html";
+    } else {
+      console.log("Usuario logueado:", usuario.username);
+      // Mostrar mensaje en pantalla
+      document.getElementById("mensaje").textContent = "Usuario logueado: " + usuario.username;
+    }
+
+    // Evento para cerrar sesión
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("usuarioLogueado");
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>

@@ -109,3 +109,7 @@ footer p{
 footer ul{
     list-style-type: none;
 }
+
+#error {
+  display: none;
+}
