@@ -10,15 +10,36 @@
       integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
       crossorigin="anonymous"
     />
-    <script defer src="./js/altaSalon.js"></script>
-    <script defer src="./js/accionSalon.js"></script>
+    
 </head>
 <body>
+    <!-- barra de navegación-->
     <header>
-        <div class="container-fluid">
-        </div>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary bg-degradado fixed-top ">
+  <div class="container-fluid navegador px-5">
+
+    <a class="navbar-brand" href="index.html">
+      <img src="imagenes/Logo Colorido de IDW Eventos.png" alt="Logo" width="70" height="auto">
+
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end " id="navbarNavAltMarkup">
+      <div class="navbar-nav d-flex gap-4">
+        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+        <a class="nav-link" href="institucional.html">Institucional</a>
+        <a class="nav-link" href="eventos.html">Catálogo</a>
+        <a class="nav-link" href="contacto.html">Contacto</a>
+        <span id="saludoUsuario" class="navbar-text text-primary fw-semibold"></span>
+
+        <!-- Botón de login o logout dinámico -->
+        <button id="authBtn" class="btn btn-outline-primary btn-sm">Login</button>
+      </div>
+    </div>
+  </div>
+</nav>
     </header>
-    <main class="container">
         <h1>Registro de salones</h1>
         <form class="mt-2" id="formSalones">
             <div class="mt-2">
@@ -55,5 +76,9 @@
         <tbody>
         </tbody>
     </table>
+    <script defer src="js/proteger-admin.js"></script>
+    <script defer src="js/auth.js"></script>
+    <script defer src="js/altaSalon.js"></script>
+    <script defer src="js/accionSalon.js"></script>
 </body>
 </html>

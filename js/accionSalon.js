@@ -1,18 +1,42 @@
-function deleteSalon(id){
+function verSalones() {
+    const table = document.querySelector(`#tabla tbody`);
+    table.innerHTML = ``;
+
     const salones = JSON.parse(localStorage.getItem(`salones`)) || [];
-    const salon = salones[id];
-    salones.splice(id,1);
-    localStorage.setItem(`salones`, JSON.stringify(salones));
-    mostrarSalones();
+
+    salones.forEach((salon, index) => {
+        const fila = document.createElement(`tr`);
+        fila.innerHTML = `
+            <td>${salon.nombre}</td>
+            <td>${salon.direccion}</td>
+            <td>${salon.descripcion}</td>
+            <td>
+                <button class="btn btn-primary btn-sm mx-1 my-1" onclick="editSalon(${index})">Editar</button>
+                <button class="btn btn-danger btn-sm mx-1 my-1" onclick="deleteSalon(${index})">Eliminar</button>
+            </td>
+        `;
+        table.appendChild(fila);
+    });
 }
-function editSalon(id){
+
+function deleteSalon(index) {
     const salones = JSON.parse(localStorage.getItem(`salones`)) || [];
-    const salon = salones[id];
-    
+    salones.splice(index, 1); // Elimina 1 elemento en la posición index
+    localStorage.setItem(`salones`, JSON.stringify(salones));
+    verSalones();
+}
+
+function editSalon(index) {
+    const salones = JSON.parse(localStorage.getItem(`salones`)) || [];
+    const salon = salones[index];
+
     document.getElementById(`nombre`).value = salon.nombre;
     document.getElementById(`dir`).value = salon.direccion;
     document.getElementById(`descripcion`).value = salon.descripcion;
-    
-    salones.splice(id,1);
-    localStorage.setItem(`salones`, JSON.stringify(salones));
+
+    // Variable global definida en altaSalon.js
+    indexEditando = index;
 }
+
+// Ejecutar al cargar
+verSalones();
