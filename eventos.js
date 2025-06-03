@@ -29,22 +29,26 @@ const eventos = [
 const salones = [
 {
     imagen: "imagenes/salones/salon1.jpg",
-    titulo: "Salón Primavera",
+    nombre: "Salón Primavera",
     descripcion:"Un espacio cálido, ideal para cumpleaños infantiles con capacidad para 50 personas."
 },
 {
     imagen: "imagenes/salones/salon2.jpg",
-    titulo: "Salón arcoíris",
+    nombre: "Salón arcoíris",
     descripcion:"Decoración colorida, zona de juegos, inflables y una cocina equipada para meriendas. Capacidad para 60 personas."
 },
 {
     imagen: "imagenes/salones/salon3.jpg",
-    titulo: "Salón estelar",
+    nombre: "Salón estelar",
     descripcion:"Perfecto para fiestas temáticas. Incluye luces LED, pista de baile y sonido profesional. Capacidad para 80 personas."
 
 }
 ]
 
+function UnificarSalones(){
+    const salonesLocales = JSON.parse(localStorage.getItem("salones")) || [];
+    return [...salonesLocales, ...salones];
+}
 // Funciones para mostrar los eventos y salones en el catálogo
 
 function mostrarEventos() {
@@ -72,17 +76,20 @@ function mostrarEventos() {
 
 function mostrarSalones() {
     const catalogoSalones = document.getElementById("catalogoSalones");
-    salones.forEach(salon => {
+    const listaSalones = UnificarSalones();
+    listaSalones.forEach(salon => {
+         
         const card = `
     <div class="col">
         <div class="card">
-            <img src="${salon.imagen}" class="card-img-fluid object-fit-cover w-100" style="height: 180px;" alt="${salon.titulo}">
+            <img src="${salon.imagen}" class="card-img-fluid object-fit-cover w-100" style="height: 180px;" alt="${salon.nombre}">
             <div class="card-body d-flex flex-column">
-                <h5 class="card-title">${salon.titulo}</h5>
+                <h5 class="card-title">${salon.nombre}</h5>
                 <p class="card-text">${salon.descripcion}</p>
-                <div class="mt-auto f-flex justify-content-end">
+                <div class="mt-auto d-flex justify-content-end">
                     <a href="contacto.html"><button type="button" class="btn btn-outline-secondary ">Cotizar</button></a>
                 </div>
+                
                 
             </div>
         </div>
@@ -91,6 +98,7 @@ function mostrarSalones() {
     catalogoSalones.innerHTML += card;
     }
     );
+
 }
 
 // Llamar a las funciones para mostrar los eventos y salones al cargar la página
