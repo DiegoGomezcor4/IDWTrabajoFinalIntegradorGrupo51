@@ -13,7 +13,7 @@
     <link href="estilos.css" rel="stylesheet" />
   </head>
 <body>
-<!-- barra de navegación-->
+    <!-- barra de navegación-->
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary bg-degradado fixed-top ">
   <div class="container-fluid navegador px-5">
@@ -30,17 +30,28 @@
         <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
         <a class="nav-link" href="institucional.html">Institucional</a>
         <a class="nav-link" href="eventos.html">Catálogo</a>
+        
+<!-- Dropdown para el saludo del usuario -->   
         <a class="nav-link" href="contacto.html">Contacto</a>
-        <span id="saludoUsuario" class="navbar-text text-primary fw-semibold"></span>
-
-        <!-- Botón de login o logout dinámico -->
+        <div class="nav-item dropdown" role="group">
+            <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <span id="saludoUsuario" class="navbar-text text-black fw-semibold"></span>
+            </button>
+            <ul class="dropdown-menu bg-light">
+                <li><a class="dropdown-item fs-6" href="admin-salones.html">Administrar catálogo</a></li>
+            </ul>
+        </div>
+  
+<!-- Botón de login o logout dinámico -->
         <button id="authBtn" class="btn btn-outline-primary btn-sm">Login</button>
       </div>
     </div>
   </div>
-</nav>
+        </nav>
     </header>
+
     <main class="container">
+
 <!-- presentacion inicial-->
         <section class="bg-image col-12 d-flex justify-content-center align-items-center text-center" style="height:400px;">
             <div class="row align-items-center">

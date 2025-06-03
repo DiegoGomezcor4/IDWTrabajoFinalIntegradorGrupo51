@@ -7,20 +7,30 @@ formsalon.addEventListener(`submit`, function(event) {
     const nombre = document.getElementById(`nombre`).value;
     const direccion = document.getElementById(`dir`).value;
     const descripcion = document.getElementById(`descripcion`).value;
+    const imagen = document.getElementById(`imagen`);
+    const imagenFile = imagen.files[0];
 
-    const salon = { nombre, direccion, descripcion };
-    const salones = JSON.parse(localStorage.getItem(`salones`)) || [];
+    const reader = new FileReader();
 
-    if (indexEditando === -1) {
+    reader.onload = function(e) {
+        const imagenBase64 = e.target.result;
+    
+    
+        const salon = {nombre, direccion, descripcion, imagen: imagenBase64};
+        const salones = JSON.parse(localStorage.getItem(`salones`)) || [];
+
+        if (indexEditando === -1) {
         // Agregar nuevo
         salones.push(salon);
-    } else {
+        } else {
         // Editar existente
         salones[indexEditando] = salon;
         indexEditando = -1;
+        }
+        localStorage.setItem(`salones`, JSON.stringify(salones));
+        formsalon.reset();
+        verSalones();
     }
-
-    localStorage.setItem(`salones`, JSON.stringify(salones));
-    this.reset();
-    verSalones();
+        reader.readAsDataURL(imagenFile);
+    
 });
