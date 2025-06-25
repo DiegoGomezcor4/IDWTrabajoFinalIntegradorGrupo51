@@ -24,16 +24,23 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const userData = await res.json();
+      console.log("Datos del usuario recibidos:", userData);
 
-      console.log("Token recibido:", userData.token); // <--- Esto te muestra el token en consola
+      // 🔍 Revisar si hay token o ssToken
+      const token = userData.token || userData.accessToken;
 
-      // Guardar token en sessionStorage
-      sessionStorage.setItem("token", userData.token);
+      if (!token) {
+        console.log("Estructura completa de userData:", userData);
+      throw new Error("No se recibió token del servidor.");
+}
 
-      // Guardar info del usuario (opcional)
+      // Guardar en sessionStorage
+      sessionStorage.setItem("token", token);
+
+      // Guardar usuario completo en localStorage
       localStorage.setItem("usuarioLogueado", JSON.stringify(userData));
 
-      // Redirigir al panel de administración
+      // Redirigir
       window.location.href = "admin-salones.html";
     } catch (error) {
       console.error("Error al iniciar sesión:", error);
@@ -47,5 +54,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-
