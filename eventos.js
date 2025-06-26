@@ -1,159 +1,136 @@
-const eventos = [
-    {
-        imagen: "imagenes/catalogo1.jpg",
-        titulo: "Cumpleaños infantiles",
-        descripcion: "Diversión asegurada con juegos, decoración y animación personalizada."
-    },
-    {
-        imagen: "imagenes/catalogo2.jpg",
-        titulo: "Fiestas temáticas",
-        descripcion: "Unicornios, superhéroes, princesas y mucho más para imaginar sin límites."
-    },
-    {
-        imagen: "imagenes/catalogo3.jpg",
-        titulo: "Tardes de juegos",
-        descripcion: "Juegos cooperativos, inflables y dinámicas pensadas para todas las edades."
-    },
-    {
-        imagen: "imagenes/catalogo4-2.jpg",
-        titulo: "Mini disco",
-        descripcion: "Luces, música y baile para que los chicos vivan una fiesta como grandes."
-    },
-    {
-        imagen: "imagenes/catalogo5.jpg",
-        titulo: "Picnics y meriendas especiales",
-        descripcion: "Momentos al aire libre llenos de color, dulzura y juegos tranquilos."
-    }
-];
+const servicios = [
+{
+    id:1,
+    imagen: "imagenes/catalogo1.jpg",
+    nombre: "Catering",
+    descripcion:"Menús variados y adaptados a tus gustos, con opciones para todos los paladares.",
+    precio: 350000
+},
+{
+    id:2,
+    imagen: "imagenes/catalogo2.jpg",
+    nombre: "Fiestas temáticas",
+    descripcion:"Unicornios, superhéroes, princesas y mucho más para imaginar sin límites.",
+    precio: 120000
+},
+{
+    id:3,
+    imagen: "imagenes/fotografia.jpeg",
+    nombre: "Fotografía y video",
+    descripcion:"Capturamos los mejores momentos con servicios de fotografía y video profesional.",
+    precio: 25000
+},
+{
+    id:4,
+    imagen: "imagenes/entretenimiento.jpg",
+    nombre: "Música y entretenimiento",
+    descripcion:"DJ profesionales, bandas en vivo y shows para que la diversión no falte en tu celebración.",
+    precio: 90000
+},
 
-const salonesIniciales = [
-    {
-        imagen: "imagenes/salones/salon1.jpg",
-        nombre: "Salón Primavera",
-        descripcion: "Un espacio cálido, ideal para cumpleaños infantiles con capacidad para 50 personas."
-    },
-    {
-        imagen: "imagenes/salones/salon2.jpg",
-        nombre: "Salón arcoíris",
-        descripcion: "Decoración colorida, zona de juegos, inflables y una cocina equipada para meriendas. Capacidad para 60 personas."
-    },
-    {
-        imagen: "imagenes/salones/salon3.jpg",
-        nombre: "Salón estelar",
-        descripcion: "Perfecto para fiestas temáticas. Incluye luces LED, pista de baile y sonido profesional. Capacidad para 80 personas."
-    }
-];
 
-// Función para inicializar localStorage con salones por defecto
-function inicializarSalones() {
-    const salonesGuardados = localStorage.getItem("salones");
-    
-    if (!salonesGuardados) {
-        localStorage.setItem("salones", JSON.stringify(salonesIniciales));
-        console.log("✅ Salones inicializados en localStorage");
-        return salonesIniciales;
-    } else {
-        console.log("ℹ️ Los salones ya existen en localStorage");
-        return JSON.parse(salonesGuardados);
+]
+
+const salonesPrecargados1 = [
+{
+    id:1,
+    imagen: "imagenes/salones/salon1.jpg",
+    nombre: "Salón Primavera",
+    descripcion:"Un espacio cálido, ideal para cumpleaños infantiles con capacidad para 50 personas.",
+    direccion: "Av. las Heras 3086, CABA",
+    precio: 200000,
+    estado: "Disponible"
+},
+{
+    id:2,
+    imagen: "imagenes/salones/salon2.jpg",
+    nombre: "Salón arcoíris",
+    descripcion:"Decoración colorida, zona de juegos, inflables y una cocina equipada para meriendas.",
+    direccion: "Av. Cabildo 834, CABA",
+    precio: 350000,
+    estado: "Reservado"
+},
+{
+    id:3,
+    imagen: "imagenes/salones/salon3.jpg",
+    nombre: "Salón estelar",
+    descripcion:"Perfecto para fiestas temáticas. Incluye luces LED, pista de baile y sonido profesional.",
+    direccion: "Av. las Heras 3086, CABA",
+    precio: 400000,
+    estado: "Reservado"
+},
+]
+
+// cargar salones predeterminados en el Localstorage
+function precargarSalones(){
+    const salonesGuardados = JSON.parse(localStorage.getItem("salones")) || [];
+    if (salonesGuardados.length === 0){
+        localStorage.setItem("salones", JSON.stringify(salonesPrecargados1));
     }
 }
 
-// Función para obtener salones del localStorage
-function obtenerSalones() {
-    const salonesGuardados = localStorage.getItem("salones");
-    if (salonesGuardados) {
-        return JSON.parse(salonesGuardados);
-    } else {
-        console.log("⚠️ No hay salones en localStorage, usando salones iniciales");
-        return salonesIniciales;
-    }
-}
+// Funciones para mostrar los eventos y salones en el catálogo
 
-// Función para mostrar los eventos en el catálogo
-function mostrarEventos() {
-    const catalogoEventos = document.getElementById("catalogoEventos");
-    
-    if (!catalogoEventos) {
-        console.error("❌ No se encontró el elemento catalogoEventos");
-        return;
-    }
-    
-    catalogoEventos.innerHTML = ""; // Limpiar contenido previo
-    
-    eventos.forEach(evento => {
-        const card = `
-            <div class="col">
-                <div class="card">
-                    <img src="${evento.imagen}" class="card-img-fluid object-fit-cover w-100" style="height: 180px;" alt="${evento.titulo}">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">${evento.titulo}</h5>
-                        <p class="card-text">${evento.descripcion}</p>
-                        <div class="mt-auto d-flex justify-content-end">
-                            <a href="contacto.html">
-                                <button type="button" class="btn btn-outline-secondary">Cotizar</button>
-                            </a>
-                        </div>                            
-                    </div>
-                </div>
+function mostrarServicios() {
+    const catalogoServicios = document.getElementById("catalogoServicios");
+    servicios.forEach(servicio => {
+    const card = `
+    <div class="col">
+        <div class="card">
+            <img src="${servicio.imagen}" class="card-img-fluid object-fit-cover w-100" style="height: 180px;" alt="${servicio.nombre}">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">${servicio.nombre}</h5>
+                <p class="card-text">${servicio.descripcion}</p>
             </div>
-        `;
-        catalogoEventos.innerHTML += card;
-    });
-    
-    console.log(`✅ Se mostraron ${eventos.length} eventos`);
+            <div class="card-footer bg-light border-top d-flex justify-content-between align-items-center">
+                <p class="card-text fw-bold fs-3">$${servicio.precio}</p>
+                <div>
+                    <a href="contacto.html"><button type="button" class="btn btn-outline-secondary ">Cotizar</button></a>
+                </div>   
+            </div>
+        </div>
+    </div>
+    `;
+    catalogoServicios.innerHTML += card;
+    }
+    );
 }
 
-// Función para mostrar los salones del localStorage
 function mostrarSalones() {
     const catalogoSalones = document.getElementById("catalogoSalones");
-    
-    if (!catalogoSalones) {
-        console.error("❌ No se encontró el elemento catalogoSalones");
-        return;
-    }
-    
-    catalogoSalones.innerHTML = ""; // Limpiar contenido previo
-    
-    const listaSalones = obtenerSalones();
-    console.log("📋 Salones a mostrar:", listaSalones);
-    
+    const listaSalones = JSON.parse(localStorage.getItem("salones")) || [];
+    catalogoSalones.innerHTML = "";
+
     listaSalones.forEach(salon => {
-        const card = `
-            <div class="col">
-                <div class="card">
-                    <img src="${salon.imagen}" class="card-img-fluid object-fit-cover w-100" style="height: 180px;" alt="${salon.nombre}">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">${salon.nombre}</h5>
-                        <p class="card-text">${salon.descripcion}</p>
-                        <div class="mt-auto d-flex justify-content-end">
-                            <a href="contacto.html">
-                                <button type="button" class="btn btn-outline-secondary">Cotizar</button>
-                            </a>
-                        </div>                                              
-                    </div>
-                </div>
+         
+    const card = `
+    <div class="col">
+        <div class="card">
+            <img src="${salon.imagen}" class="card-img-fluid object-fit-cover w-100" style="height: 180px;" alt="${salon.nombre}">
+            <div class="card-body d-flex flex-column">
+                
+                <h5 class="card-title">${salon.nombre}</h5>
+                <p class="card-text">${salon.direccion}</p>
+                <p class="card-text">${salon.descripcion}</p>
             </div>
-        `;
-        catalogoSalones.innerHTML += card;
-    });
-    
-    console.log(`✅ Se mostraron ${listaSalones.length} salones`);
+            <div class="card-footer bg-light border-top d-flex justify-content-between align-items-center">
+                <p class="card-text fw-bold fs-3">$${salon.precio}</p>
+                <div>
+                    <a href="contacto.html"><button type="button" class="btn btn-outline-secondary ">Cotizar</button></a>
+                </div>   
+            </div>
+        </div>
+    </div>
+    `;
+    catalogoSalones.innerHTML += card;
+    }
+    );
+
 }
 
-// Inicializar cuando se carga la página
+// Llamar a las funciones para mostrar los servicios y salones al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("🚀 Página cargada, iniciando proceso...");
-    
-    // 1. Inicializar localStorage con salones
-    inicializarSalones();
-    
-    // 2. Mostrar eventos y salones
-    mostrarEventos();
+    precargarSalones();
+    mostrarServicios();
     mostrarSalones();
-    
-    // 3. Verificar localStorage (para debugging)
-    const salonesEnStorage = localStorage.getItem("salones");
-    console.log("💾 Contenido de localStorage 'salones':", salonesEnStorage);
-    
-    console.log("✅ Proceso completado");
 });
