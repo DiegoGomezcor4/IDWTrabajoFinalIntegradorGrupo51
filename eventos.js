@@ -1,96 +1,123 @@
-const eventos = [
+const servicios = [
 {
+    id:1,
     imagen: "imagenes/catalogo1.jpg",
-    titulo: "Cumpleaños infantiles",
-    descripcion:"Diversión asegurada con juegos, decoración y animación personalizada."
+    nombre: "Catering",
+    descripcion:"Menús variados y adaptados a tus gustos, con opciones para todos los paladares.",
+    precio: 350000
 },
 {
+    id:2,
     imagen: "imagenes/catalogo2.jpg",
-    titulo: "Fiestas temáticas",
-    descripcion:"Unicornios, superhéroes, princesas y mucho más para imaginar sin límites."
+    nombre: "Fiestas temáticas",
+    descripcion:"Unicornios, superhéroes, princesas y mucho más para imaginar sin límites.",
+    precio: 120000
 },
 {
-    imagen: "imagenes/catalogo3.jpg",
-    titulo: "Tardes de juegos",
-    descripcion:"Juegos cooperativos, inflables y dinámicas pensadas para todas las edades."
+    id:3,
+    imagen: "imagenes/fotografia.jpeg",
+    nombre: "Fotografía y video",
+    descripcion:"Capturamos los mejores momentos con servicios de fotografía y video profesional.",
+    precio: 25000
 },
 {
-    imagen: "imagenes/catalogo4-2.jpg",
-    titulo: "Mini disco",
-    descripcion:"Luces, música y baile para que los chicos vivan una fiesta como grandes."
+    id:4,
+    imagen: "imagenes/entretenimiento.jpg",
+    nombre: "Música y entretenimiento",
+    descripcion:"DJ profesionales, bandas en vivo y shows para que la diversión no falte en tu celebración.",
+    precio: 90000
 },
-{
-    imagen: "imagenes/catalogo5.jpg",
-    titulo: "Picnics y meriendas especiales",
-    descripcion:"Momentos al aire libre llenos de color, dulzura y juegos tranquilos."
-},
+
+
 ]
 
-const salones = [
+const salonesPrecargados1 = [
 {
+    id:1,
     imagen: "imagenes/salones/salon1.jpg",
     nombre: "Salón Primavera",
-    descripcion:"Un espacio cálido, ideal para cumpleaños infantiles con capacidad para 50 personas."
+    descripcion:"Un espacio cálido, ideal para cumpleaños infantiles con capacidad para 50 personas.",
+    direccion: "Av. las Heras 3086, CABA",
+    precio: 200000,
+    estado: "Disponible"
 },
 {
+    id:2,
     imagen: "imagenes/salones/salon2.jpg",
     nombre: "Salón arcoíris",
-    descripcion:"Decoración colorida, zona de juegos, inflables y una cocina equipada para meriendas. Capacidad para 60 personas."
+    descripcion:"Decoración colorida, zona de juegos, inflables y una cocina equipada para meriendas.",
+    direccion: "Av. Cabildo 834, CABA",
+    precio: 350000,
+    estado: "Reservado"
 },
 {
+    id:3,
     imagen: "imagenes/salones/salon3.jpg",
     nombre: "Salón estelar",
-    descripcion:"Perfecto para fiestas temáticas. Incluye luces LED, pista de baile y sonido profesional. Capacidad para 80 personas."
-
-}
+    descripcion:"Perfecto para fiestas temáticas. Incluye luces LED, pista de baile y sonido profesional.",
+    direccion: "Av. las Heras 3086, CABA",
+    precio: 400000,
+    estado: "Reservado"
+},
 ]
 
-function UnificarSalones(){
-    const salonesLocales = JSON.parse(localStorage.getItem("salones")) || [];
-    return [...salonesLocales, ...salones];
+// cargar salones predeterminados en el Localstorage
+function precargarSalones(){
+    const salonesGuardados = JSON.parse(localStorage.getItem("salones")) || [];
+    if (salonesGuardados.length === 0){
+        localStorage.setItem("salones", JSON.stringify(salonesPrecargados1));
+    }
 }
+
 // Funciones para mostrar los eventos y salones en el catálogo
 
-function mostrarEventos() {
-    const catalogoEventos = document.getElementById("catalogoEventos");
-    eventos.forEach(evento => {
-        const card = `
+function mostrarServicios() {
+    const catalogoServicios = document.getElementById("catalogoServicios");
+    servicios.forEach(servicio => {
+    const card = `
     <div class="col">
         <div class="card">
-            <img src="${evento.imagen}" class="card-img-fluid object-fit-cover w-100" style="height: 180px;" alt="${evento.titulo}">
+            <img src="${servicio.imagen}" class="card-img-fluid object-fit-cover w-100" style="height: 180px;" alt="${servicio.nombre}">
             <div class="card-body d-flex flex-column">
-                <h5 class="card-title">${evento.titulo}</h5>
-                <p class="card-text">${evento.descripcion}</p>
-                <div class="mt-auto f-flex justify-content-end">
+                <h5 class="card-title">${servicio.nombre}</h5>
+                <p class="card-text">${servicio.descripcion}</p>
+            </div>
+            <div class="card-footer bg-light border-top d-flex justify-content-between align-items-center">
+                <p class="card-text fw-bold fs-3">$${servicio.precio}</p>
+                <div>
                     <a href="contacto.html"><button type="button" class="btn btn-outline-secondary ">Cotizar</button></a>
-                </div>
-                
+                </div>   
             </div>
         </div>
     </div>
     `;
-    catalogoEventos.innerHTML += card;
+    catalogoServicios.innerHTML += card;
     }
     );
 }
 
 function mostrarSalones() {
     const catalogoSalones = document.getElementById("catalogoSalones");
-    const listaSalones = UnificarSalones();
+    const listaSalones = JSON.parse(localStorage.getItem("salones")) || [];
+    catalogoSalones.innerHTML = "";
+
     listaSalones.forEach(salon => {
          
-        const card = `
+    const card = `
     <div class="col">
         <div class="card">
             <img src="${salon.imagen}" class="card-img-fluid object-fit-cover w-100" style="height: 180px;" alt="${salon.nombre}">
             <div class="card-body d-flex flex-column">
+                
                 <h5 class="card-title">${salon.nombre}</h5>
+                <p class="card-text">${salon.direccion}</p>
                 <p class="card-text">${salon.descripcion}</p>
-                <div class="mt-auto d-flex justify-content-end">
+            </div>
+            <div class="card-footer bg-light border-top d-flex justify-content-between align-items-center">
+                <p class="card-text fw-bold fs-3">$${salon.precio}</p>
+                <div>
                     <a href="contacto.html"><button type="button" class="btn btn-outline-secondary ">Cotizar</button></a>
-                </div>
-                
-                
+                </div>   
             </div>
         </div>
     </div>
@@ -101,8 +128,9 @@ function mostrarSalones() {
 
 }
 
-// Llamar a las funciones para mostrar los eventos y salones al cargar la página
+// Llamar a las funciones para mostrar los servicios y salones al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
-    mostrarEventos();
+    precargarSalones();
+    mostrarServicios();
     mostrarSalones();
 });

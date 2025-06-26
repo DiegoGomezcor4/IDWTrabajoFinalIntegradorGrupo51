@@ -12,34 +12,48 @@ formsalon.addEventListener(`submit`, function(event) {
     const imagen = document.getElementById(`imagen`);
     const imagenFile = imagen.files[0];
     
-        // Controlar imagen
-        const tamanioImagen = 1024 * 1024;
+// Controlar tamaño de imagen
+    const tamanioImagen = 1024 * 1024;
 
-        if (imagenFile && imagenFile.size > tamanioImagen){
-            alert('La imagen debe pesar menos de 1MB');
-            return;
+    if (imagenFile && imagenFile.size > tamanioImagen){
+        alert('La imagen debe pesar menos de 1MB');
+        return;
         }
+
+// controlar editar imagen
         
-        if(imagenFile){
-            const reader = new FileReader();
-            reader.onload = function(e) {
-            const imagenBase64 = e.target.result;
-            guardarSalon({nombre, direccion, descripcion,precio,imagen:imagenBase64});
-            };    
-            reader.readAsDataURL(imagenFile);
+    const salones = JSON.parse(localStorage.getItem("salones")) || [];
+
+// calcular nueva id del salon
+    const nuevoId = indexEditando === -1 
+                ? salones.reduce((max, salon) => Math.max(max, salon.id || 0), 0) + 1
+                : salones[indexEditando].id;
+
+
+    if(imagenFile){
+        const reader = new FileReader();
+        reader.onload = function(e) {
+        const imagenBase64 = e.target.result;
+        const estado = indexEditando === -1 ? "disponible":
+        salones[indexEditando].estado
+        const salon = {id: nuevoId, nombre, direccion, descripcion,precio,imagen:imagenBase64,estado};
+        guardarSalon(salon);
+    };    
+    reader.readAsDataURL(imagenFile);
         }else{
             
-            const salones = JSON.parse(localStorage.getItem("salones")) || [];
             const imagenAnterior = indexEditando !== -1 ? salones[indexEditando].imagen: null;
             
             if(!imagenAnterior){
                 alert("Seleccionar imagen");
-                    return;
+                return;
                 }
-
-                guardarSalon({nombre, direccion, descripcion,precio,imagen: imagenAnterior});
-            }
+            const salon = { id: nuevoId, nombre, direccion, descripcion, precio, imagen: imagenAnterior };
+        guardarSalon(salon);
+            
+        }
     });
+
 
     function guardarSalon(salon){
         const salones =  JSON.parse(localStorage.getItem('salones')) || [];

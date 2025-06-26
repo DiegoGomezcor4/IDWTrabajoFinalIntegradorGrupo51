@@ -11,6 +11,7 @@ function verSalones() {
             <td>${salon.direccion}</td>
             <td>${salon.descripcion}</td>
             <td>${salon.precio}</td>
+            <td>${salon.estado}</td>
             <td><img src="${salon.imagen}" alt="${salon.nombre}" style = "max-width: 120px; height: auto;"></td>
             <td>
                 <button class="btn btn-primary btn-sm mx-1 my-1" onclick="editSalon(${index})">Editar</button>
