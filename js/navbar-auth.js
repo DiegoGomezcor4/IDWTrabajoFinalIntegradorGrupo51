@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const userStr = localStorage.getItem("usuarioLogueado");
   const saludo = document.getElementById("saludoUsuario");
   const authBtn = document.getElementById("authBtn");
-  const adminLink = document.getElementById("adminLink");
 
   if (token && userStr) {
     const user = JSON.parse(userStr);
@@ -21,12 +20,13 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.removeItem("usuarioLogueado");
         window.location.href = "index.html";  // Redirección a la página de inicio
       };
-
     }
 
-    if (adminLink) {
-      adminLink.classList.remove("d-none");
-    }
+    // Mostrar todos los enlaces de administración
+    document.querySelectorAll(".admin-link").forEach(link => {
+      link.classList.remove("d-none");
+    });
+
   } else {
     if (authBtn) {
       authBtn.onclick = () => {
