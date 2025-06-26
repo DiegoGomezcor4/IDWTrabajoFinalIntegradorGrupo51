@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const userData = await res.json();
       console.log("Datos del usuario recibidos:", userData);
 
-      // 🔍 Revisar si hay token o ssToken
+      // Revisar si hay token o ssToken
       const token = userData.token || userData.accessToken;
 
       if (!token) {
