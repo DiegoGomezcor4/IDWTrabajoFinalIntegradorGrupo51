@@ -9,3 +9,8 @@ Adrian Alejandro Velarde
 Lurdes Micaela Velarde
 Magali Caceres
 Diego Gomez 
+
+emilysCredenciales de prueba válidas:
+Usuario: emilys
+
+Contraseña: emilyspass
