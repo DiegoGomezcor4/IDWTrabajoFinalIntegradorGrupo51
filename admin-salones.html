@@ -78,12 +78,17 @@
                     <textarea class="form-control" id="descripcion" rows="4" required></textarea>
                 </div>
                 <div class="mt-2">
+                    <label for="precio" class="form-label">Precio</label>
+                    <input class="form-control" type="number" id="precio" required>
+                </div>
+                <div class="mt-2">
                     <label for="imagen" class="form-label">imagen</label>
                     <input type="file" id="imagen" accept="image/*" class="form-control" required>
+                    
                 </div>
 
                 <div class="d-grid gap-5 mt-2">
-                    <button class="btn btn-primary" type="submit">Guardar</button>
+                    <button id="btnGuardar" class="btn btn-primary" type="submit">Guardar</button>
                 </div>
             </div>
         </form>
@@ -97,8 +102,10 @@
                 <th class="col">Nombre</th>
                 <th class="col">Dirección</th>
                 <th class="col">Descripción</th>
+                <th class="col">Precio</th>
                 <th class="col">Imagen</th>
                 <th class="col">Opciones</th>
+                
                 
             </tr>
         </thead>    

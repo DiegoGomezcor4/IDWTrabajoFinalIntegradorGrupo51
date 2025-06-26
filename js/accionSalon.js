@@ -10,7 +10,8 @@ function verSalones() {
             <td>${salon.nombre}</td>
             <td>${salon.direccion}</td>
             <td>${salon.descripcion}</td>
-            <td><img src="${salon.imagen}" alt="${salon.nombre}" class= "img-fluid w-25"></td>
+            <td>${salon.precio}</td>
+            <td><img src="${salon.imagen}" alt="${salon.nombre}" style = "max-width: 120px; height: auto;"></td>
             <td>
                 <button class="btn btn-primary btn-sm mx-1 my-1" onclick="editSalon(${index})">Editar</button>
                 <button class="btn btn-danger btn-sm mx-1 my-1" onclick="deleteSalon(${index})">Eliminar</button>
@@ -34,9 +35,11 @@ function editSalon(index) {
     document.getElementById(`nombre`).value = salon.nombre;
     document.getElementById(`dir`).value = salon.direccion;
     document.getElementById(`descripcion`).value = salon.descripcion;
+    document.getElementById("precio").value = salon.precio;
 
     // Variable global definida en altaSalon.js
     indexEditando = index;
+    
 }
 
 // Ejecutar al cargar
