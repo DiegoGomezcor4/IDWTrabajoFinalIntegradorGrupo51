@@ -9,6 +9,7 @@ formsalon.addEventListener(`submit`, function(event) {
     const direccion = document.getElementById(`dir`).value;
     const descripcion = document.getElementById(`descripcion`).value;
     const precio = document.getElementById('precio').value;
+    const estado = document.getElementById('estado').value;
     const imagen = document.getElementById(`imagen`);
     const imagenFile = imagen.files[0];
     
@@ -34,9 +35,9 @@ formsalon.addEventListener(`submit`, function(event) {
         const reader = new FileReader();
         reader.onload = function(e) {
         const imagenBase64 = e.target.result;
-        const estado = indexEditando === -1 ? "disponible":
+        const estado = document.getElementById("estado").value;
         salones[indexEditando].estado
-        const salon = {id: nuevoId, nombre, direccion, descripcion,precio,imagen:imagenBase64,estado};
+        const salon = {id: nuevoId, nombre, direccion, descripcion,precio,estado,imagen:imagenBase64,estado};
         guardarSalon(salon);
     };    
     reader.readAsDataURL(imagenFile);
@@ -48,7 +49,7 @@ formsalon.addEventListener(`submit`, function(event) {
                 alert("Seleccionar imagen");
                 return;
                 }
-            const salon = { id: nuevoId, nombre, direccion, descripcion, precio, imagen: imagenAnterior };
+            const salon = { id: nuevoId, nombre, direccion, descripcion, precio,estado ,imagen: imagenAnterior };
         guardarSalon(salon);
             
         }

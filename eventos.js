@@ -1,4 +1,4 @@
-const servicios = [
+const serviciosprecargados1 = [
 {
     id:1,
     imagen: "imagenes/catalogo1.jpg",
@@ -61,11 +61,17 @@ const salonesPrecargados1 = [
 },
 ]
 
-// cargar salones predeterminados en el Localstorage
+// cargar salones y servicios predeterminados en el Localstorage
 function precargarSalones(){
     const salonesGuardados = JSON.parse(localStorage.getItem("salones")) || [];
     if (salonesGuardados.length === 0){
         localStorage.setItem("salones", JSON.stringify(salonesPrecargados1));
+    }
+}
+function precargarServicios() {
+    const serviciosGuardados = JSON.parse(localStorage.getItem("servicios")) || [];
+    if (serviciosGuardados.length === 0) {
+        localStorage.setItem("servicios", JSON.stringify(serviciosprecargados1));
     }
 }
 
@@ -73,7 +79,9 @@ function precargarSalones(){
 
 function mostrarServicios() {
     const catalogoServicios = document.getElementById("catalogoServicios");
-    servicios.forEach(servicio => {
+    const listaServicios = JSON.parse(localStorage.getItem("servicios")) || [];
+    catalogoServicios.innerHTML = "";
+    listaServicios.forEach(servicio => {
     const card = `
     <div class="col">
         <div class="card">
@@ -131,6 +139,7 @@ function mostrarSalones() {
 // Llamar a las funciones para mostrar los servicios y salones al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
     precargarSalones();
+    precargarServicios();
     mostrarServicios();
     mostrarSalones();
 });

@@ -37,9 +37,11 @@ function editSalon(index) {
     document.getElementById(`dir`).value = salon.direccion;
     document.getElementById(`descripcion`).value = salon.descripcion;
     document.getElementById("precio").value = salon.precio;
+    document.getElementById("estado").value = salon.estado;
 
     // Variable global definida en altaSalon.js
     indexEditando = index;
+    btnGuardar.textContent = "Actualizar";
     
 }
 
