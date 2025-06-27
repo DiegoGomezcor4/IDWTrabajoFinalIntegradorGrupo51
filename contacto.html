@@ -14,9 +14,8 @@
 </head>
 <body>
     <!-- barra de navegación-->
-    <header>
+<header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary bg-degradado fixed-top ">
-
             <div class="container-fluid navegador px-5">
     
                 <a class="navbar-brand" href="index.html">
@@ -35,15 +34,19 @@
     
                         <!-- Dropdown para el saludo del usuario -->
                         <a class="nav-link" href="contacto.html">Contacto</a>
+                        <a class="nav-link" href="presupuestos.html">Presupuesto</a>
                         <div class="nav-item dropdown" role="group">
                             <button type="button" class="btn btn-outline-secondary dropdown-toggle"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <span id="saludoUsuario" class="navbar-text text-black fw-semibold"></span>
                             </button>
                             <ul class="dropdown-menu bg-light">
-                                <li><a class="dropdown-item fs-6 d-none admin-link" href="admin-salones.html">Administrar catálogo</a></li>
                                 <li><a class="dropdown-item fs-6 d-none admin-link" href="admin-usuarios.html">Administrar usuarios</a></li>
+                                <li><a class="dropdown-item fs-6 d-none admin-link" href="admin-salones.html">Administrar catálogo</a></li>
+                                <li><a class="dropdown-item fs-6 d-none admin-link" href="admin-servicios.html">Administrar servicios</a></li>
                             </ul>
+
+
                         </div>
     
                         <!-- Botón de login o logout dinámico -->
@@ -54,7 +57,6 @@
 
         </nav>
     </header>
-
  <!-- Contenido principal -->
     <main class="container mb-5">
         <div class="row my-3 d-flex gy-5 text-center">
