@@ -92,6 +92,7 @@ function mostrarServicios() {
             </div>
             <div class="card-footer bg-light border-top d-flex justify-content-between align-items-center">
                 <p class="card-text fw-bold fs-3">$${servicio.precio}</p>
+            
                 <div>
                     <a href="contacto.html"><button type="button" class="btn btn-outline-secondary ">Cotizar</button></a>
                 </div>   
@@ -120,6 +121,7 @@ function mostrarSalones() {
                 <h5 class="card-title">${salon.nombre}</h5>
                 <p class="card-text">${salon.direccion}</p>
                 <p class="card-text">${salon.descripcion}</p>
+                <p class="card-text">Estado: ${salon.estado}</p>
             </div>
             <div class="card-footer bg-light border-top d-flex justify-content-between align-items-center">
                 <p class="card-text fw-bold fs-3">$${salon.precio}</p>
