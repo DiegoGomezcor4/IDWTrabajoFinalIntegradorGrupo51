@@ -1,28 +1,24 @@
 const serviciosprecargados1 = [
 {
     id:1,
-    imagen: "imagenes/catalogo1.jpg",
     nombre: "Catering",
     descripcion:"Menús variados y adaptados a tus gustos, con opciones para todos los paladares.",
     precio: 350000
 },
 {
     id:2,
-    imagen: "imagenes/catalogo2.jpg",
     nombre: "Fiestas temáticas",
     descripcion:"Unicornios, superhéroes, princesas y mucho más para imaginar sin límites.",
     precio: 120000
 },
 {
     id:3,
-    imagen: "imagenes/fotografia.jpeg",
     nombre: "Fotografía y video",
     descripcion:"Capturamos los mejores momentos con servicios de fotografía y video profesional.",
     precio: 25000
 },
 {
     id:4,
-    imagen: "imagenes/entretenimiento.jpg",
     nombre: "Música y entretenimiento",
     descripcion:"DJ profesionales, bandas en vivo y shows para que la diversión no falte en tu celebración.",
     precio: 90000
@@ -85,7 +81,6 @@ function mostrarServicios() {
     const card = `
     <div class="col">
         <div class="card">
-            <img src="${servicio.imagen}" class="card-img-fluid object-fit-cover w-100" style="height: 180px;" alt="${servicio.nombre}">
             <div class="card-body d-flex flex-column">
                 <h5 class="card-title">${servicio.nombre}</h5>
                 <p class="card-text">${servicio.descripcion}</p>
